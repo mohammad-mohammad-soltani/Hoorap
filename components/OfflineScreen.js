@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 const OfflineScreen = () => {
   const [fontsLoaded] = useFonts({
     'Vazir': require('../assets/fonts/Vazir-Thin-FD-WOL.ttf'),
+    'VazirBold' : require('../assets/fonts/Vazir-Bold.ttf')
   });
 
   if (!fontsLoaded) {
@@ -14,11 +15,14 @@ const OfflineScreen = () => {
   return (
     <View style={styles.container}>
         <View style={{display:'flex' , flexDirection:'column' , justifyContent: 'center' , alignItems:'center'}} >
-            <Text style={styles.title} >اتصال اینترنت یافت نشد</Text>
+            <Image
+            source = {require('../assets/net.png')} 
+            style = {{width:100 , height:100}}
+            /> 
+            <Text style={styles.title} >اتصال اینترنت برقرار نیست</Text>
             <View style={{height:10}} ></View>      
-            <Text style={styles.text} >برای استفاده از "هوراپ" شما باید به اینترنت متصل باشید.</Text>
-            <Text style={styles.text} >پس از اتصال به اینترنت ، هوراپ به طور خودکار بارگذاری میشود.</Text>
-
+            <Text style={styles.text} >به نظر میرسد اینترنت شما قطع است. 
+            لطفا اتصال خود را بررسی کرده و دوباره تلاش کنید. </Text>
         </View>
     </View>
   );
@@ -33,16 +37,17 @@ const styles = StyleSheet.create({
     flexDirection:'column'
 },
     title : {
-        fontFamily: "Vazir",
+        fontFamily: "VazirBold",
         fontSize : 20,
-        backgroundColor : '#c40014',
-        color: 'white',
+        color: '#c40014',
         padding: 5,
         paddingHorizontal : 15,
         borderRadius : 40
     },
     text : {
-        fontFamily : "Vazir"
+        fontFamily : "Vazir",
+        fontSize : 9,
+        textAlign : 'center'
     },
     button:{
         backgroundColor:'#68f184',

@@ -4,8 +4,8 @@ import SplashScreen from './components/SplashScreen'
 import OfflineScreen from './components/OfflineScreen'
 import WebView  from 'react-native-webview';
 import NetInfo from '@react-native-community/netinfo';
-import Constants from 'expo-constants';
 
+import Constants from 'expo-constants';
 export default function App() {
     const [isConnected, setIsConnected] = useState(null);
     const [webLoading, setWebLoading] = useState(true);   
@@ -16,7 +16,6 @@ export default function App() {
 
       return () => unsubscribe();
     }, []);
-
     if (isConnected === null) {
       return (
         <View style={styles.container}>
@@ -32,10 +31,10 @@ export default function App() {
         );
     }
       return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1 , marginTop: Constants.statusBarHeight }}  >
       <WebView
-        source={{ uri: 'https://digikala.com' }}
-        style={{ flex: 1  ,     marginTop: Constants.statusBarHeight}}
+        source={{ uri: 'https://web.hoorapp .com' }}
+        style={{ flex: 1  ,     marginTop: Constants.statusBarHeight }}
         onLoadStart={() => setWebLoading(true)} 
         onLoadEnd={() => setWebLoading(false)}  
         
