@@ -24,4 +24,4 @@ jobs:
       - name: Build on EAS
         run: |
           export EAS_NO_VCS=1
-          eas build --platform android --profile preview --non-interactive --no-wait
+          npx eas-cli build --platform android --profile preview --non-interactive
