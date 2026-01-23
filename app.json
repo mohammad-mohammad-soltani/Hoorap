@@ -24,7 +24,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.x1130899098.HoorapApplication"
+      "package": "com.hoorap.HoorapApplication"
     },
     "web": {
       "favicon": "./assets/favicon.png"

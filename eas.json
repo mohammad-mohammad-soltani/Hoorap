@@ -2,8 +2,7 @@
   "build": {
     "preview": {
       "android": {
-        "buildType": "apk",
-        "package": "com.hoorap.HoorapApplication"
+        "buildType": "apk"
       }
     },
     "production": {}
