@@ -1,11 +1,14 @@
 {
-  "build": {
-    "preview": {
-      "android": {
-        "buildType": "apk",
-        "package": "com.hoorap.HoorapApplication"
-      }
+  "expo": {
+    "name": "HoorapApplication",
+    "slug": "hoorap",
+    "android": {
+      "package": "com.hoorap.HoorapApplication"
     },
-    "production": {}
+    "extra": {
+      "eas": {
+        "projectId": "39c301e5-59af-4e03-926b-e078826bc8f5"
+      }
+    }
   }
 }
