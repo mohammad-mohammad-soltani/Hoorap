@@ -1,29 +1,27 @@
-name: Expo Build
+name: EAS Build
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main # نام برنچ اصلی شما (معمولاً main یا master است)
-
+      - main
 jobs:
   build:
+    name: Install and build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
-
-      - name: Setup EAS
+          node-version: 20
+          cache: npm
+      - name: Setup Expo and EAS
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-
       - name: Install dependencies
-        run: npm install
-
+        run: npm install # به جای npm ci از install استفاده کن که با پکیج‌های تو سازگارتر باشد
       - name: Build on EAS
-        run: eas build --platform android --profile preview --non-interactive --auto-credentials
+        run: |
+          export EAS_NO_VCS=1
+          eas build --platform android --profile preview --non-interactive --no-wait
