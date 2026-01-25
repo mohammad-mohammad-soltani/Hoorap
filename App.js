@@ -33,7 +33,7 @@ export default function App() {
       return (
     <View style={{ flex: 1 , marginTop: Constants.statusBarHeight }}  >
       <WebView
-        source={{ uri: 'https://web.hoorapp .com' }}
+        source={{ uri: 'https://web.hoorapp.com' }}
         style={{ flex: 1  ,     marginTop: Constants.statusBarHeight }}
         onLoadStart={() => setWebLoading(true)} 
         onLoadEnd={() => setWebLoading(false)}  
