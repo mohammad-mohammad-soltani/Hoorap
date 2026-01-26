@@ -33,17 +33,9 @@ export default function App() {
       return (
     <View style={{ flex: 1 , marginTop: Constants.statusBarHeight }}  >
       <WebView
-        source={{ uri: 'http://web.hoorapp.com' }}
+        source={{ uri: 'https://hoorapp.com' }}
         style={{ flex: 1  ,     marginTop: Constants.statusBarHeight }}
-        onLoadStart={() => setWebLoading(true)} 
-        onLoadEnd={() => setWebLoading(false)}  
-        
       />
-      {webLoading && (
-          <View style={StyleSheet.absoluteFillObject}>
-            <SplashScreen></SplashScreen>
-          </View>
-      )}
     </View>
   );
 
