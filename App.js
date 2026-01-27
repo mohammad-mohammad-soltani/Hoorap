@@ -30,12 +30,23 @@ export default function App() {
           </View>
         );
     }
+     const INJECTED_JS = `
+      const meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+      true;
+    `;
       return (
     <View style={{ flex: 1 , marginTop: Constants.statusBarHeight }}  >
-      <WebView
-        source={{ uri: 'https://hoorapp.com' }}
-        style={{ flex: 1  ,     marginTop: Constants.statusBarHeight }}
-      />
+     
+
+    <WebView
+      source={{ uri: 'https://hoorapp.com' }}
+      injectedJavaScript={INJECTED_JS}
+      onMessage={(event) => {}} // گاهی برای اجرای صحیح injectedJavaScript لازم است
+      style={{ flex: 1 }}
+    />
     </View>
   );
 
