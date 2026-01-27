@@ -4,7 +4,7 @@ import SplashScreen from './components/SplashScreen'
 import OfflineScreen from './components/OfflineScreen'
 import WebView  from 'react-native-webview';
 import NetInfo from '@react-native-community/netinfo';
-
+import { Dimensions, Platform } from 'react-native';
 import Constants from 'expo-constants';
 export default function App() {
     const [isConnected, setIsConnected] = useState(null);
@@ -38,7 +38,7 @@ export default function App() {
       true;
     `;
       return (
-    <View style={{ flex: 1 , marginTop: Constants.statusBarHeight }}  >
+    <View style={{ flex: 1 , marginTop: Constants.statusBarHeight , paddingBottom: Platform.OS === 'android' ? 20 : 0 }}  >
      
 
     <WebView
@@ -54,7 +54,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:19,
     flex: 1,
   },
 });
