@@ -6,6 +6,7 @@ import WebView  from 'react-native-webview';
 import NetInfo from '@react-native-community/netinfo';
 import { Dimensions, Platform } from 'react-native';
 import Constants from 'expo-constants';
+import { SafeAreaView } from 'react-native-safe-area-context';
 export default function App() {
     const [isConnected, setIsConnected] = useState(null);
     const [webLoading, setWebLoading] = useState(true);   
@@ -38,8 +39,7 @@ export default function App() {
       true;
     `;
       return (
-    <View style={{ flex: 1 , marginTop: Constants.statusBarHeight , paddingBottom: Platform.OS === 'android' ? 20 : 0 }}  >
-     
+    <SafeAreaView style={{ flex: 1 }}>     
 
     <WebView
       source={{ uri: 'https://hoorapp.com' }}
@@ -47,8 +47,8 @@ export default function App() {
       onMessage={(event) => {}} // گاهی برای اجرای صحیح injectedJavaScript لازم است
       style={{ flex: 1 }}
     />
-    </View>
-  );
+    </SafeAreaView>
+    );
 
 }
 
